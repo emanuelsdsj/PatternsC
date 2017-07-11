@@ -3,16 +3,19 @@ QT -= gui
 
 CONFIG += c++11
 
-TARGET = AbstractFactory
+TARGET = Bridge
 CONFIG += console
 CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp \
-    factory1.cpp \
-    product11.cpp \
-    product21.cpp
+SOURCES += \
+    interfaces/windowabstract.cpp \
+    platforms/linux.cpp \
+    platforms/osx.cpp \
+    windows/win1.cpp \
+    windows/win2.cpp \
+    main.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -25,10 +28,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-HEADERS += \
-    factory1.h \
-    product11.h \
-    product21.h \
-    iabstractfactory.h \
-    iabstractproduct1.h \
-    iabstractproduct2.h
+HEADERS += interfaces/iplatform.h \
+    interfaces/windowabstract.h \
+    platforms/linux.h \
+    platforms/osx.h \
+    windows/win1.h \
+    windows/win2.h
